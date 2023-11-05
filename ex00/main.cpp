@@ -1,6 +1,8 @@
 #include <iostream>
 
 int main( void ) {
+	int 🇦🇩 = 4;
+	std::cout << 🇦🇩;
 // Fixed a;
 // Fixed const b( 10 );
 // Fixed const c( 42.42f );

@@ -1,7 +1,7 @@
 #CPPC is short for CPP Compiler
 CPPC=c++
 NAME=prg
-SRCS=main.cpp
+SRCS=main.cpp Fixed.cpp
 
 all: $(NAME)
 

@@ -23,12 +23,12 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj) {
 	return os;
 }
 
-bool Fixed::operator==(const Fixed& rhs){return this->num == rhs.num;};
-bool Fixed::operator!=(const Fixed& rhs){return this->num != rhs.num;};
-bool Fixed::operator<=(const Fixed& rhs){return this->num <= rhs.num;};
-bool Fixed::operator<(const Fixed& rhs){return this->num < rhs.num;};
-bool Fixed::operator>=(const Fixed& rhs){return this->num >= rhs.num;};
-bool Fixed::operator>(const Fixed& rhs){return this->num > rhs.num;};
+bool Fixed::operator==(const Fixed& rhs) const{return this->num == rhs.num;};
+bool Fixed::operator!=(const Fixed& rhs) const{return this->num != rhs.num;};
+bool Fixed::operator<=(const Fixed& rhs) const{return this->num <= rhs.num;};
+bool Fixed::operator<(const Fixed& rhs) const {return this->num < rhs.num;};
+bool Fixed::operator>=(const Fixed& rhs) const{return this->num >= rhs.num;};
+bool Fixed::operator>(const Fixed& rhs) const{return this->num > rhs.num;};
 
 Fixed Fixed::operator+(const Fixed& rhs){Fixed a; a.num = num + rhs.num; return a;};
 Fixed Fixed::operator-(const Fixed& rhs){Fixed a; a.num = num - rhs.num; return a;};
@@ -39,3 +39,8 @@ Fixed& Fixed::operator++(){num++; return *this;}
 Fixed Fixed::operator++(int){Fixed a(*this); num++; return a;}
 Fixed& Fixed::operator--(){num--; return *this;}
 Fixed Fixed::operator--(int){Fixed a(*this); num--; return a;}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b){return a < b ? a : b;}
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b){return a < b ? a : b;}
+Fixed& Fixed::max(Fixed& a, Fixed& b){return a > b ? a : b;}
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b){return a > b ? a : b;}

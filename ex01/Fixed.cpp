@@ -2,13 +2,13 @@
 
 const int Fixed::fractionalbits = 8;
 
-Fixed::Fixed(): num(0){}
-Fixed::~Fixed(){}
-Fixed::Fixed(const Fixed& a): num(a.num) {}
-Fixed::Fixed(int a){num = POW2_8 * a;}
-Fixed::Fixed(float a){num = (float)POW2_8 * a;}
+Fixed::Fixed(): num(0){std::cout << "Default constructor called" << std::endl;}
+Fixed::~Fixed(){std::cout << "Destructor called" << std::endl;}
+Fixed::Fixed(const Fixed& a): num(a.num) {std::cout << "Copy constructor called" << std::endl;}
+Fixed::Fixed(int a){std::cout << "Int constructor called" << std::endl;num = POW2_8 * a;}
+Fixed::Fixed(float a){std::cout << "Float constructor called" << std::endl;num = (float)POW2_8 * a;}
 
-const Fixed &Fixed::operator=(const Fixed& other){num = other.num; return *this;}
+const Fixed &Fixed::operator=(const Fixed& other){std::cout << "Copy assignment operator called" << std::endl;num = other.num; return *this;}
 
 int Fixed::getRawBits(void) const{return num;}
 

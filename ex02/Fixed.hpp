@@ -38,10 +38,10 @@ public:
 	Fixed& operator--(void);
 	Fixed operator--(int);
 
-	Fixed& min(Fixed&, Fixed&);
-	const Fixed& min(const Fixed&, const Fixed&);
-	Fixed& max(Fixed&, Fixed&);
-	const Fixed& max(const Fixed&, const Fixed&);
+	static Fixed& min(Fixed&, Fixed&);
+	static const Fixed& min(const Fixed&, const Fixed&);
+	static Fixed& max(Fixed&, Fixed&);
+	static const Fixed& max(const Fixed&, const Fixed&);
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
@@ -50,5 +50,7 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+
+
 
 #endif

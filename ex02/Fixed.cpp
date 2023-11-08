@@ -6,7 +6,7 @@ Fixed::Fixed(): num(0){}
 Fixed::~Fixed(){}
 Fixed::Fixed(const Fixed& a): num(a.num) {}
 Fixed::Fixed(int a){num = POW2_8 * a;}
-Fixed::Fixed(float a){num = (float)POW2_8 * a;}
+Fixed::Fixed(float a){num = roundf((float)POW2_8 * a);}
 
 const Fixed &Fixed::operator=(const Fixed& other){num = other.num; return *this;}
 
@@ -32,7 +32,7 @@ bool Fixed::operator>(const Fixed& rhs) const{return this->num > rhs.num;};
 
 Fixed Fixed::operator+(const Fixed& rhs){Fixed a; a.num = num + rhs.num; return a;};
 Fixed Fixed::operator-(const Fixed& rhs){Fixed a; a.num = num - rhs.num; return a;};
-Fixed Fixed::operator*(const Fixed& rhs){Fixed a; a.num = num * (rhs.num / POW2_8); return a;};
+Fixed Fixed::operator*(const Fixed& rhs){Fixed a; a.num = (num * rhs.num) / POW2_8; return a;};
 Fixed Fixed::operator/(const Fixed& rhs){Fixed a; a.num = (POW2_8 * num) / rhs.num; return a;};
 
 Fixed& Fixed::operator++(){num++; return *this;}
